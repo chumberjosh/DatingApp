@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DatingApp.API.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,21 +11,22 @@ namespace DatingApp.API.Controllers
 {
     // by default the kestrel webserver port is 5000
     // http://localhost:5000/api/values     - What happens when you access that link:
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly DataContext _Context;
+        private readonly DataContext _context;
         public ValuesController(DataContext Context)
         {
-            _Context = Context;
+            _context = Context;
 
         }
         // GET api/values
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
-            var values = await _Context.Values.ToListAsync();
+            var values = await _context.Values.ToListAsync();
 
             return Ok(values);
         }
@@ -33,10 +35,11 @@ namespace DatingApp.API.Controllers
         // (http 200 response means your request has succeeded)
 
         // GET api/values/5                 - What happens when you access that link but with something else on the end, e.g <--:
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
-            var value = await _Context.Values.FirstOrDefaultAsync(x => x.Id == id);
+            var value = await _context.Values.FirstOrDefaultAsync(x => x.Id == id);
             // we use first or default because if first doesnt work it will then return the 'null' which is better than 
             // if it was to not work and return an exception
             return Ok(value);
