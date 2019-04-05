@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { AlertifyService } from '../_services/alertify.service';
+// we imported the alertfiy service here
 
 @Component({
   selector: 'app-nav',
@@ -9,27 +11,35 @@ import { AuthService } from '../_services/auth.service';
 export class NavComponent implements OnInit {
   model: any = {};
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService, private alertify: AlertifyService) { }
+// we added the alertify service as a private constructor here
 
   ngOnInit() {
   }
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-      console.log('Logged in successfully');
+      this.alertify.success('Logged in successfully');
+// if login is successfull then do that
+// if they log in successfully run the .success function
     }, error => {
-      console.log(error);
+      this.alertify.error(error);
     });
+// if there is an error (not successful) then do that
+// if theres an error then run the .error function
   }
 
 loggedIn() {
-  const token = localStorage.getItem('token');
-  return !!token;
+  return this.authService.loggedIn();
 }
+// Once you are logged in put a token in localStorage
+// if there is an error here, change this logged in function to this:
 
 logout() {
   localStorage.removeItem('token');
-  console.log('logged out');
+  this.alertify.message('logged out');
 }
+// Once you are logged out remove the token from the local storage
+// if they log out run the .message function (.message is just different because of the color)
 
 }

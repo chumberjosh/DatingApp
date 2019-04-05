@@ -1,0 +1,65 @@
+Section 1 - What we're going to do
+  1. Introduction
+
+Section 2 - Checking functionality and prepaing the development environment
+  1. Walking Skeleton (create a small chunk of the program to test functionality)
+     Creating the application arcitechture
+	- Database
+	- ORM (entity framework)
+	- API (This fetches the information to be displayed on the SPA)
+	- SPA (Angular Application)
+  2. Creating the web API Project - 
+  3. Review the default files created by the DotNetCLI - the tool we're going to be using to create the web api
+  4. Ensure the web API runs successfully
+  5. Create our database using the Code first approach
+  6. Add source control -  to check in the changes
+  7. Create the Angular Application
+  8. Make HTTP requests from angular to fetch data from our API - configure the application to fetch data from the API
+  9. Bind data from the API to the HTML to display it on the page
+  10. Add support for Bootstrap and Font Awesome - so we can make the styling easier
+
+Section 3 - The database
+  1. How we store passwords in the database
+  2. Creating the User Model - adding new migrations
+  3. The repository pattern - why we should use it
+  4. Creating the authenticaion controller
+  5. Data transfer objects
+  6. Token authentication - when a user logs in we dont want them to keep having to log in when they go and come back in a short amount of time
+  7. Authentication Middleware - use it to protect our controllers and the methods inside them
+
+Section 4 - Creating the webpage
+  1. Creating Login and Navbar
+  2. Angular Template Forms - how angular handles forms
+  3. Usings services in Angular - how we use our own servies in angular, we dont want to put all the methods scattered around the API, we want them all in one place and then
+inject them in
+  4. Conditionally displaying elements on a page - display certain information based on ceratin things
+  5. Create a register component - so users can register
+  6. Component communication - the components are going to need to communicate to eachother, the child component -> parent component and vice versa
+
+Section 5 - Errors and exceptions
+  1. Handling exceptions in the API
+  2. Setting up the Global exception Handler in the API
+  3. Handling errors in Angular
+
+Section 6 - Optimising the webpage for the user
+   1. Alertifyjs - provide notifications to the user (a better way of telling the user that there is an error than putting it in the console)
+	We used the 'npm install function to install alertify'
+	Alertifyjs was then added to the node_modules
+	We added the "node_modules/alertifyjs/build/alertify.min.js" into angular.json inside a script
+	We then imported alertify into styles.css
+	We then generated a service called alertify in the '-SPA >src >app >services' folder (this created 2 .ts files) 
+	View 'alertify.service.ts' to see what was done inside this	
+	Added 'AlertifyService' as a provider inside 'app.module.ts'
+	Made sure that 'Alertifyservice' is imported at the top of 'app.module.ts'		(import { AlertifyService } from './_services/alertify.service';)
+	We added the alertify service to the 'nav.component.ts' - check the file to see what has been done
+	We also add it to register.componenet.ts
+
+   2. Angular JWT - Tokens are stored in local storage, in order for a user to log in we check local storage for something called 'token', using Angular JWT will help us 
+with this, it also gives us other benefits. We're going to send a JWT request for every request we make to the API (except login and register) so this will help us with this
+	Our token is secure but we should still use extra security
+	This is the one we use - https://github.com/auth0/angular2-jwt
+	View section 6, lecture 55 and 56 on how to do this
+
+   3. NGX Bootstrap - We're using NGX Bootstrap because it provides similar functionality to Bootstrap JS but we're not using Bootstrap because that needs jQuery which
+we're not using
+   4. Bootswatch - This will allow us to change the theme to the site (colours, look and feel)

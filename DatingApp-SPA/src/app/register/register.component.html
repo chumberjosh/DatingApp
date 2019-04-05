@@ -1,18 +1,26 @@
 <form #registerform="ngForm" (ngSubmit)="register()">
+<!-- this is saying that its an angular form -->
   <h2 class="text-center text-primary">Sign Up</h2>
   <hr>
 
   <div class="form-group">
     <input type="text" class="form-control" required name="username" [(ngModel)]="model.username" placeholder="Username">
+<!-- This is a required field, it is linked inside nav.component.html, the name of the field is model.username, it is created to hold
+the username and it is also used to log the user in -->
   </div>
 
   <div class="form-group">
     <input type="password" class="form-control" required name="username" [(ngModel)]="model.password"placeholder="Password">
+<!-- This is a required field, it is linked inside nav.component.html, the name of the field is model.password, it is created to hold
+the password and it is also used to log the user in -->
   </div>
 
   <div class="form-group text-center">
     <button class="btn btn-success" type="submit">Register</button>
+<!-- The register button is a bootstrap-success button so it is styled differently to the other ones -->
     <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+<!-- This is a standard button, on click it will perform the cancel function on register.component.ts (it cancels the register area)
+because it uses conditional rendering -->
   </div>
   
 </form>

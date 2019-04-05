@@ -1,0 +1,50 @@
+e = extension
+f = folder
+ts = typescript
+i = extra information
+d = normal coding doc
+im = more important
+t = normal text document
+
+DatingApp.API
+	API = Application programming interface
+
+		.vscode = 
+
+			launch.json = 
+
+			tasks.json = 
+
+		bin = 
+
+		controllers = 
+			
+			AuthController.cs = 
+
+			ValuesController.cs = 
+
+		Data = 
+		
+			AuthRepository.cs = 
+
+			DataContext.cs = 
+
+			IAuthRepository.cs = 
+
+		Dtos =
+
+			UserForLoginDtos.cs = 
+
+			UserForRegisterDto.cs = 
+
+		Helpers = 
+
+			Extensions.cs
+
+		Migrations = 
+
+			[info]_InititalCreate.cs = 
+
+			[info]_InititalCreate.designer.cs = 
+
+			[info]_AddedUserEntity.cs =

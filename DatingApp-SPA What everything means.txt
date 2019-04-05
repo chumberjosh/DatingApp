@@ -1,0 +1,129 @@
+e = extension
+f = folder
+ts = typescript
+i = extra information
+d = normal coding doc
+im = more important
+t = normal text document
+
+DatingApp-SPA
+e	SPA = Single Page Application, this is the angular application, where the application is actually displayed
+
+f		e2e =   They are powered by a testing library called 'protractor'. Protractor is an E2E test runner that will allow us to create scenario tests.
+	It allows us to use a localhost server port, in this case it is localhost:4200 (this is the default angular port)
+
+f		node_modules = a directory only for build tools, it works with package.json and npm install. The package.json file defines what libraries will be intalled into
+	node_modules when you run the 'npm install' function in the terminal
+
+f	src = source, where angular gets the information that it will use to display information on the webpage.
+	
+f		app = the folder with all the application information inside it
+
+f			_services = the folder with the services in
+
+				auth.service.spec.ts = the typescript that specifies the authorisation services in
+				
+				auth.service.ts = the typescript with the authorisation services in
+	
+				error.interceptor.ts = the file that controls what happens when there is an error
+		
+f			home = the folder with the home page html + other info on it
+i			the stuff in the home folder is linked to stuff in the register folder
+
+				home.component.css = will be used to display the CSS for the webpage, currently the whole webpage is using bootstrap so its empty	
+			
+				home.component.html = the html for the page
+
+				home.component.spec.ts = the file that works with the protractor file to say what happens when testing
+
+				home.component.ts = the file with all the classes and functions in for the documents in the home folder to use
+
+f			nav = the file with the navbar inside
+i			thie app is linked to bootstrap in app.module.ts so its easier for us, we're using a bootstrap navbar
+					
+				nav.component.css = will be used to display the CSS for the navbar, currently the whole webpage is using bootstrap so its empty	
+			
+				nav.component.html = the bootstrap html for the navbar
+
+				nav.component.spec.ts = the file that works with the protractor file to say what happens when testing
+
+				nav.component.ts = the file with all the classes and functions in for the documents in the nav folder to use
+
+f			register = the file with the register information inside
+i			it is linked to nav.component.html to allow the user to sign in with the information they registered with
+					
+				register.component.css = will be used to display the CSS for the register page, currently the whole webpage is using bootstrap so its empty	
+			
+				register.component.html = the bootstrap html for the navbar
+
+				register.component.spec.ts = the file that works with the protractor file to say what happens when testing
+
+				register.component.ts = the file with all the classes and functions in for the documents in the nav folder to use
+
+
+			app.component.css = will be used to display the CSS for the register page, currently the whole webpage is using bootstrap so its empty	
+		
+			app.component.html = this is what is actually displayed on the web application
+
+			app.component.spec.ts = the file that works with the protractor file to say what happens when testing
+
+			app.component.ts = this has a class inside it 
+
+im			app.module.ts = this has all the imports in that are used in the _services file
+
+f		assets = the folder with the .gitkeep inside
+
+			.gitkeep = an empty file that alows the git repository to keep an empty project directory
+
+f		environment
+			
+			environment.prod.ts = this file runs when its in production mode
+i			because it's 'production: true'
+
+			environment.ts = this file runs when it's not in production mode
+i			because it's 'production: false'
+
+t		browserslist = the file that says / chooses what browser the application will work on
+
+		index.html = the actual html file for the web page
+
+		karma.conf.js = Karma is a JavaScript test runner created by the AngularJS team.
+i		jasmine is the testing framework. Karmaa provides helpful tools that make it easier to call the jasmine tests while writing code at the
+		same time
+i		check the readme file for more information about Karma
+
+		main.ts = a textscript document that works with the environment mode (production / development) and making it dynamic using bootstrap
+
+		polyfills.ts = This file includes polyfills needed by Angular and is loaded before the app.
+i		polyfills are code that implements features that support multiple browsers
+
+		styles.css = this is the file with the imports for the styling
+i			- it has:
+i			  - bootstrap
+i			  - font awesome
+i			  - alertify
+i			  - alertify themes
+			
+		test.ts = required by karma.conf.js repeatedly loads all the .spec and framwork files
+		
+		tsconfig.app.json = provides options used when working with code in the 'app' folder. Allows further customization files from 'tsconfig.json'
+
+		tsconfig.spec.json = extends from tsconfig.json
+
+		tslint.json = extends from the other tslint.json file	
+
+	.editorconfig = the configuration for the editor
+	
+	.gitignore = the file that tells the git what to ignore
+
+	angular.json = this is where you add the scripts that you want to use, e.g you put the file path to alertifyjs in it
+
+	package-lock.json = locks the package versions
+
+	package.json = shows the package versions
+	
+i	README.md = just a readme file with some helpful information in
+
+	tsconfig.json = provides the base options that different config files derive from
+
+	tslint.json = informaion that the SPA / angular file has to follow
