@@ -54,12 +54,28 @@ Section 6 - Optimising the webpage for the user
 	We added the alertify service to the 'nav.component.ts' - check the file to see what has been done
 	We also add it to register.componenet.ts
 
-   2. Angular JWT - Tokens are stored in local storage, in order for a user to log in we check local storage for something called 'token', using Angular JWT will help us 
-with this, it also gives us other benefits. We're going to send a JWT request for every request we make to the API (except login and register) so this will help us with this
-	Our token is secure but we should still use extra security
+   2. Angular JWT (lec 55 and 56) - This just checks that a token actually exists and if it has expired
 	This is the one we use - https://github.com/auth0/angular2-jwt
 	View section 6, lecture 55 and 56 on how to do this
+	We then make the 'welcome user' on the top right say 'welcome [users name]
+	We then change the code so it will last through a refresh because otherwise the name would disappear after a page refresh
 
    3. NGX Bootstrap - We're using NGX Bootstrap because it provides similar functionality to Bootstrap JS but we're not using Bootstrap because that needs jQuery which
 we're not using
+	Watch Lecture 56, here we made it so the dropdown menu where it says 'welcome [user] works
+	We also did some more conditional rendering so the buttons only show when a user is logged in
+
    4. Bootswatch - This will allow us to change the theme to the site (colours, look and feel)
+	Watch Lecture 57 on how to import this and how to edit it so you can customise it and make it look however you want it to look
+
+Section 7 - Routing in Angular - Why we need routing? We need Routing because we're creating a Single Page Application, this means we're not going to different pages and
+routing allows us to find and load different parts of the application without having to reload the page. It will still change the URL even though we're on the same page
+   1. Setting up routing
+	. 
+   2. Use RouterLinkActinve - we can make our links our pages look like they're the active page that is being loaded
+	. 
+   3. Using Routing in Code - Navigate users from one part of the application to another without adding links into our html
+	. 
+   4. Protecting the routes - We're going to have a lot of user information so we dont want to give full access to anonymous users
+	.
+   5. Protecting multiple routes at once - with one route guard
