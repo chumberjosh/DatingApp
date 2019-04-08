@@ -71,11 +71,51 @@ we're not using
 Section 7 - Routing in Angular - Why we need routing? We need Routing because we're creating a Single Page Application, this means we're not going to different pages and
 routing allows us to find and load different parts of the application without having to reload the page. It will still change the URL even though we're on the same page
    1. Setting up routing
-	. 
+	We created 3 cinponents in the 'app' file
+	   1. Lists - for the list of users that have likeed the currently logged in user and the list of users they have liked
+	   2. member-list - the list of other users
+	   3. messages - for the messages
+	We then checked in the app.modeule.ts file to see if they had all been brought in and imported
+	at the app folder we generated a new file called 'routes.ts' - view this to see what has been done
+	We then added it to the 'app.module.ts' inside imports: and in the top import (the list that comes from node modules)
+
    2. Use RouterLinkActinve - we can make our links our pages look like they're the active page that is being loaded
-	. 
+	View lecture 61, we're adding route links in the 'nav.component.html'
    3. Using Routing in Code - Navigate users from one part of the application to another without adding links into our html
-	. 
+	View lecture 62, here we made it so you the URL changes depending on what you click
+
    4. Protecting the routes - We're going to have a lot of user information so we dont want to give full access to anonymous users
-	.
+	View lecture 63, here we made it so you have to be authenticated to view different pages, even if you type in the URL
+	We created a folder in the 'app' file called '_guards' which is where the route guards will be
+
    5. Protecting multiple routes at once - with one route guard
+	View lecture 64, here we protected multiple routes with a single guard
+	We do this using child guards - 'routes.ts'
+
+Section 8 - Extending the API
+   1. Extending the User class - providing more info about the user
+	Adding more Columns to the table
+
+   2. More Migrations
+	Watch lecture 67 onwards to figure out how to sort out migrations etc.
+
+   3. Cascade Delete - Do we want to delete multiple things at once? (In this example we are doing it so if a user account is deleted, so is the photo on that account
+	Lecture 69 (may need to watch 68 / 67 first)
+
+   4. Seeding Data into our databse - Add more values and users in the database to work with them in the angular application
+	Lecture 70 and 71 - A more efficient way of adding data to our database / generating data to populate our database - this is reffered to seeding the data
+	   Lecture 70 - Creating the Data
+	   Lecture 71 - Actually seeding the data in to the database
+	We commentedout the command to seed the users into the database, if we need to use it again, uncomment 'seeder.SeedUsers();' around line 82 in 'Startup.cs'
+
+   5. Creating a new Repository
+	Lecture 72 - Here we create a new repository for multiple different things
+	Lecture 73 - Here we create the UsersController
+	   By doing this we are able to find all users through postman aswell as finding them seperately by typing their ID into the URL (Watch lecture 73 (maybe 72) to understand this further)
+		http://localhost:5000/api/users/
+		http://localhost:5000/api/users/[1-10] 
+
+   6. Using Automapper - Mapping DTO's to models
+	Lecture 74 - Here we shape what we send to the user so we can choose what they send, e.g currently they can see too much info (like the pass hash+aslt) so we 
+	should make it so they can't see that
+	Lecture 75 - Using AutoMapper - Here we have chosen what we are showing to the user so we are not showing the password or anything
