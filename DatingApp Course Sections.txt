@@ -1,7 +1,11 @@
+To change the theme go to 'styles.css' and change the bootswatch theme:
+@import '../node_modules/bootswatch/dist/[ENTER THEME HERE]/bootstrap.min.css'; 
+To find the bootswatch themes, go to '-SPA> node_modules> bootswatch> dist>' choose which one youw ant and type it into the space above
+
 Section 1 - What we're going to do
   1. Introduction
 
-Section 2 - Checking functionality and prepaing the development environment
+Section 2 - Checking functionality and preparing the development environment
   1. Walking Skeleton (create a small chunk of the program to test functionality)
      Creating the application arcitechture
 	- Database
@@ -29,12 +33,20 @@ Section 3 - The database
 
 Section 4 - Creating the webpage
   1. Creating Login and Navbar
+	We used a bootstrap navbar
+
   2. Angular Template Forms - how angular handles forms
-  3. Usings services in Angular - how we use our own servies in angular, we dont want to put all the methods scattered around the API, we want them all in one place and then
-inject them in
+
+  3. Usings services in Angular
+	how we use our own servies in angular, we dont want to put all the methods scattered around the API, we want them all in one place and then
+	inject them in
+
   4. Conditionally displaying elements on a page - display certain information based on ceratin things
+	E.g. we will get rid of the lo
   5. Create a register component - so users can register
+
   6. Component communication - the components are going to need to communicate to eachother, the child component -> parent component and vice versa
+
 
 Section 5 - Errors and exceptions
   1. Handling exceptions in the API
@@ -52,7 +64,7 @@ Section 6 - Optimising the webpage for the user
 	Added 'AlertifyService' as a provider inside 'app.module.ts'
 	Made sure that 'Alertifyservice' is imported at the top of 'app.module.ts'		(import { AlertifyService } from './_services/alertify.service';)
 	We added the alertify service to the 'nav.component.ts' - check the file to see what has been done
-	We also add it to register.componenet.ts
+	We also add it to register.component.ts
 
    2. Angular JWT (lec 55 and 56) - This just checks that a token actually exists and if it has expired
 	This is the one we use - https://github.com/auth0/angular2-jwt
@@ -95,18 +107,23 @@ routing allows us to find and load different parts of the application without ha
 Section 8 - Extending the API
    1. Extending the User class - providing more info about the user
 	Adding more Columns to the table
+	We have actual properties that could represent user information
 
    2. More Migrations
 	Watch lecture 67 onwards to figure out how to sort out migrations etc.
+	Everytime we make a change to an entitiy we have to run a migration so that we can scaffold out the neccesary colums / tables in the database before applying them int he database
 
    3. Cascade Delete - Do we want to delete multiple things at once? (In this example we are doing it so if a user account is deleted, so is the photo on that account
 	Lecture 69 (may need to watch 68 / 67 first)
+	If we delete a user, we want all their information deleted
+	We did this by showing the relationship between the users and the photos (this is because the users and the photos aren't related when they are made)
 
    4. Seeding Data into our databse - Add more values and users in the database to work with them in the angular application
 	Lecture 70 and 71 - A more efficient way of adding data to our database / generating data to populate our database - this is reffered to seeding the data
 	   Lecture 70 - Creating the Data
 	   Lecture 71 - Actually seeding the data in to the database
-	We commentedout the command to seed the users into the database, if we need to use it again, uncomment 'seeder.SeedUsers();' around line 82 in 'Startup.cs'
+	We commented out the command to seed the users into the database, if we need to use it again, uncomment 'seeder.SeedUsers();' around line 82 in 'Startup.cs'
+	(We used a Json generator for this bit)
 
    5. Creating a new Repository
 	Lecture 72 - Here we create a new repository for multiple different things
@@ -114,8 +131,29 @@ Section 8 - Extending the API
 	   By doing this we are able to find all users through postman aswell as finding them seperately by typing their ID into the URL (Watch lecture 73 (maybe 72) to understand this further)
 		http://localhost:5000/api/users/
 		http://localhost:5000/api/users/[1-10] 
+	This repository is a general purpose repository that will be used for most things
 
    6. Using Automapper - Mapping DTO's to models
 	Lecture 74 - Here we shape what we send to the user so we can choose what they send, e.g currently they can see too much info (like the pass hash+aslt) so we 
 	should make it so they can't see that
 	Lecture 75 - Using AutoMapper - Here we have chosen what we are showing to the user so we are not showing the password or anything
+	Lecture 76 - Contination of Lecture 75, Here we are ironing out the errors encountered in lecture 75
+	Automapper is a time saving utility because it helps us map our entities into utilities and back again
+
+Section 9 - Building the UI
+   1. Using types in Typescrpt
+	Lecture 79-82 - Here we use type script so we give the usrs actual types instead of making them just be 'any'
+
+   2. Retrieving users from the API
+	Lecture 82 - Here we looked at displaying the users in the application
+
+   3. Using Bootstrap to create Member Cards
+	Lecture 83 - Here we added the rest of the users information in the form of bootstrap cards
+	Lecture 84 - Here we created the zoom function in the 'member-card.component.css' file that happens when you hover over a card
+	Lecture 85 - Here we added buttons that will appear when you hover over the top of the image
+
+   4. Adding a Detailed view of the users
+	. 
+   5. Route resolvers
+	. 
+   6. Adding a Photo Gallery
